@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101827" />
+    <title>Bulls &amp; Cows</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <p class="eyebrow">Bulls &amp; Cows</p>
+        <h1>Bulls <span>&amp;</span> Cows</h1>
+        <p class="subtitle">Угадайте секретное число. Каждая цифра встречается только один раз.</p>
+      </header>
+
+      <section class="panel settings" aria-labelledby="settings-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Новая игра</p>
+            <h2 id="settings-title">Настройки</h2>
+          </div>
+          <span id="possibilities" class="possibilities"></span>
+        </div>
+        <div class="settings-grid">
+          <label>
+            Длина числа
+            <select id="length">
+              <option value="3">3 цифры</option>
+              <option value="4" selected>4 цифры</option>
+              <option value="5">5 цифр</option>
+              <option value="6">6 цифр</option>
+            </select>
+          </label>
+          <label>
+            Система счисления
+            <select id="base">
+              <option value="2">2 — двоичная</option>
+              <option value="8">8 — восьмеричная</option>
+              <option value="10" selected>10 — десятичная</option>
+              <option value="16">16 — шестнадцатеричная</option>
+              <option value="20">20</option>
+              <option value="36">36</option>
+            </select>
+          </label>
+        </div>
+        <p class="hint">Допустимые символы: <code>0–9</code> и <code>A–Z</code> (в зависимости от основания). Ноль в начале разрешён.</p>
+        <button id="new-game" class="button button-secondary" type="button">Начать новую игру</button>
+      </section>
+
+      <section class="panel game" aria-labelledby="game-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Попытка</p>
+            <h2 id="game-title">Угадайте число</h2>
+          </div>
+          <span id="attempt-count" class="attempt-count">0 попыток</span>
+        </div>
+        <form id="guess-form" class="guess-form">
+          <label class="sr-only" for="guess">Ваш вариант</label>
+          <input id="guess" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Например, 0427" maxlength="4" aria-describedby="input-hint" />
+          <button class="button button-primary" type="submit">Проверить</button>
+        </form>
+        <p id="input-hint" class="hint">Введите уникальные цифры нужной длины.</p>
+        <p id="message" class="message" role="status" aria-live="polite">Компьютер загадал число. Поехали!</p>
+        <div class="legend">
+          <span><b class="bull-dot"></b> Bulls — цифра на своём месте</span>
+          <span><b class="cow-dot"></b> Cows — цифра есть, но место другое</span>
+        </div>
+        <div class="history-wrap">
+          <div class="history-heading"><h3>История</h3><span>Ваши варианты</span></div>
+          <div id="history-empty" class="empty-state">Здесь появятся ваши попытки</div>
+          <div id="history" class="history" aria-live="polite"></div>
+        </div>
+      </section>
+      <footer>Удачной игры!</footer>
+    </main>
+    <script type="module" src="./dist/main.js"></script>
+  </body>
+</html>
