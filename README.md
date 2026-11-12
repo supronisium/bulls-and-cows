@@ -1,6 +1,6 @@
 # Bulls & Cows — TypeScript
 
-Небольшая браузерная игра Bulls and Cows
+Небольшая браузерная игра Bulls and Cows на TypeScript
 
 ## Запуск
 
